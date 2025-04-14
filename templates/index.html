@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexiScope</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Dictionary📖</h1>
+
+    <div id="word-details" class="hidden">
+        <h2 id="word-title"></h2>
+        <p id="word-phonetic"></p>
+        <p id="word-meaning"></p>
+        <p id="word-origin"></p>
+        <ol id="word-secondary-definitions"></ol>
+        <p id="word-examples"></p>
+        <p id="word-synonyms"></p>
+        <p id="word-antonyms"></p>
+        <audio id="word-audio" controls>
+            <source id="audio-source" src="" type="audio/mpeg">
+        </audio>
+    </div>    
+    
+
+    <div id="search-container">
+        <input type="text" id="search-bar" placeholder="Search for a word..." oninput="filterWords()" />
+    </div>
+
+    <div id="alphabet-container">
+        {% for letter, words in words_by_letter.items() %}
+        <div class="letter-section">
+            <button class="letter-button" onclick="toggleWords('{{ letter }}')">{{ letter }} &#x25BC;</button>
+            <ul id="{{ letter }}" class="word-list">
+                {% for word in words %}
+                <li onmouseover="showWordDetails('{{ word }}')">{{ word }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
