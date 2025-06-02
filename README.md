@@ -1,7 +1,7 @@
 # interactive-dictionary
 An interactive dictionary that shows a word's definitions, phonetics, and some example sentences when hovered over provided by an API. Includes a searching feauture that uses binary-search to find words that match user input and displays them.
 
-**Link to project:** https://interactive-dictionary-1.onrender.com/
+**Link to project:** [https://interactive-dictionary-1.onrender.com/](https://interactive-dictionary-1f8f.onrender.com/)
 
 ![Screenshot](screenshot1.png)
 
